@@ -11,6 +11,7 @@ qGramSize = 2
 output_file = open('qgramOutput.csv','w')
 
 def score_names(fname_a, gname_a, fname_b, gname_b):
+    global qGramSize
     first_set = []
     second_set = []
     qgrams = []
@@ -25,12 +26,12 @@ def score_names(fname_a, gname_a, fname_b, gname_b):
     second_set.append(gname_b)
 
     for x in first_set:
-        st = [x[i:i+2] for i in xrange(0, len(x), 1)]
+        st = [x[i:i+qGramSize] for i in xrange(0, len(x), 1)]
         qgrams = qgrams + st
         first_qgrams = first_qgrams + st
 
     for x in second_set:
-        st = [x[i:i+2] for i in xrange(0, len(x), 1)]
+        st = [x[i:i+qGramSize] for i in xrange(0, len(x), 1)]
         qgrams = qgrams + st
         second_qgrams = second_qgrams + st
 
